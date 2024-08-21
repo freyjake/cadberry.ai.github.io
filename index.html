@@ -84,55 +84,6 @@
             z-index: 10000;
             transform: translate(-50%, -50%);
         }
-
-        /* Waitlist form styles */
-        .waitlist {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .waitlist input[type="email"] {
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: 2px solid yellow; /* Yellow outline */
-            background-color: black; /* Keep background black */
-            color: yellow; /* Yellow text */
-            width: 300px; /* Wider input field */
-            transition: all 0.3s ease; /* Transition for hover effect */
-        }
-
-        .waitlist input[type="email"]::placeholder {
-            color: yellow; /* Yellow placeholder text */
-        }
-
-        .waitlist input[type="email"]:focus {
-            outline: none; /* Remove default focus outline */
-            background-color: black; /* Keep background black */
-            color: yellow; /* Keep text yellow */
-        }
-
-        .waitlist input[type="submit"] {
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: 2px solid yellow;
-            background-color: yellow; /* Solid yellow button */
-            color: black; /* Black text */
-            cursor: pointer;
-            transition: all 0.3s ease; /* Transition for hover effect */
-        }
-
-        .waitlist input[type="submit"]:hover, .waitlist input[type="email"]:hover {
-            transform: scale(1.1); /* Grow by 10% on hover */
-        }
-
-        #response-message {
-            color: yellow;
-            font-size: 18px;
-            margin-top: 20px;
-            font-family: 'Helvetica', Arial, sans-serif;
-        }
     </style>
 </head>
 <body>
@@ -140,16 +91,6 @@
     <div class="logo-container">
         <img src="https://i.imgur.com/OIM2Td2.png" alt="Cadberry AI Logo">
         <img id="hmmm-image" src="https://i.imgur.com/GOUzgHq.png" alt="Hmmmm">
-    </div>
-
-    <!-- Waitlist form -->
-    <div class="waitlist" id="waitlist-container">
-        <h2>Join the Waitlist</h2>
-        <form id="waitlist-form">
-            <input type="email" name="email" placeholder="Enter your email" required>
-            <input type="submit" value="Notify Me">
-        </form>
-        <p id="response-message"></p>
     </div>
 
     <div class="footer">
@@ -163,9 +104,6 @@
     <script>
         const cursor = document.querySelector('.custom-cursor');
         const hmmmImage = document.getElementById('hmmm-image');
-        const form = document.getElementById('waitlist-form');
-        const responseMessage = document.getElementById('response-message');
-        const waitlistContainer = document.getElementById('waitlist-container');
 
         document.addEventListener('mousemove', e => {
             cursor.style.left = `${e.clientX}px`;
@@ -186,34 +124,6 @@
             setTimeout(() => {
                 hmmmImage.classList.remove('spin');
             }, 2000); // Match duration of the animation
-        });
-
-        // Handle form submission
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            const email = form.email.value;
-            const url = "https://script.google.com/macros/s/AKfycbwAf9NUg13JQX1v9vuMYQkHVZiG3ZUXaJntNqQWeJTvEEBOyi9v2fLnPF2VjtaSMUl9/exec";
-
-            fetch(url, {
-                method: 'POST',
-                body: JSON.stringify({ "email": email }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.result === "success") {
-                    waitlistContainer.innerHTML = "<p>Nice! You've successfully been added to the waitlist. Hold onto your butts.</p>";
-                } else {
-                    responseMessage.textContent = "There was an error. Please try again.";
-                }
-            })
-            .catch(error => {
-                responseMessage.textContent = "There was an error. Please try again.";
-                console.error('Error:', error);
-            });
         });
     </script>
 
