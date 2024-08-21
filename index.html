@@ -15,6 +15,7 @@
             height: 100vh;
             flex-direction: column;
             cursor: none; /* Hide the default cursor */
+            font-family: 'Helvetica', Arial, sans-serif;
         }
 
         .logo-container {
@@ -95,9 +96,20 @@
             font-size: 16px;
             border-radius: 5px;
             border: 2px solid yellow; /* Yellow outline */
-            background-color: #333; /* Background color */
+            background-color: black; /* Keep background black */
             color: yellow; /* Yellow text */
             width: 300px; /* Wider input field */
+            transition: all 0.3s ease; /* Transition for hover effect */
+        }
+
+        .waitlist input[type="email"]::placeholder {
+            color: yellow; /* Yellow placeholder text */
+        }
+
+        .waitlist input[type="email"]:focus {
+            outline: none; /* Remove default focus outline */
+            background-color: black; /* Keep background black */
+            color: yellow; /* Keep text yellow */
         }
 
         .waitlist input[type="submit"] {
@@ -105,20 +117,21 @@
             font-size: 16px;
             border-radius: 5px;
             border: 2px solid yellow;
-            background-color: #333;
-            color: yellow;
+            background-color: yellow; /* Solid yellow button */
+            color: black; /* Black text */
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease; /* Transition for hover effect */
         }
 
-        .waitlist input[type="submit"]:hover {
-            background-color: #555;
+        .waitlist input[type="submit"]:hover, .waitlist input[type="email"]:hover {
+            transform: scale(1.1); /* Grow by 10% on hover */
         }
 
         #response-message {
             color: yellow;
             font-size: 18px;
             margin-top: 20px;
+            font-family: 'Helvetica', Arial, sans-serif;
         }
     </style>
 </head>
