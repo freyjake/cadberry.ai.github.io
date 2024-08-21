@@ -94,8 +94,10 @@
             padding: 10px;
             font-size: 16px;
             border-radius: 5px;
-            border: none;
-            margin-right: 10px;
+            border: 2px solid yellow; /* Yellow outline */
+            background-color: #333; /* Background color */
+            color: yellow; /* Yellow text */
+            width: 300px; /* Wider input field */
         }
 
         .waitlist input[type="submit"] {
@@ -112,6 +114,12 @@
         .waitlist input[type="submit"]:hover {
             background-color: #555;
         }
+
+        #response-message {
+            color: yellow;
+            font-size: 18px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -122,7 +130,7 @@
     </div>
 
     <!-- Waitlist form -->
-    <div class="waitlist">
+    <div class="waitlist" id="waitlist-container">
         <h2>Join the Waitlist</h2>
         <form id="waitlist-form">
             <input type="email" name="email" placeholder="Enter your email" required>
@@ -144,6 +152,7 @@
         const hmmmImage = document.getElementById('hmmm-image');
         const form = document.getElementById('waitlist-form');
         const responseMessage = document.getElementById('response-message');
+        const waitlistContainer = document.getElementById('waitlist-container');
 
         document.addEventListener('mousemove', e => {
             cursor.style.left = `${e.clientX}px`;
@@ -183,8 +192,7 @@
             .then(response => response.json())
             .then(data => {
                 if (data.result === "success") {
-                    responseMessage.textContent = "Thank you for joining the waitlist!";
-                    form.reset();
+                    waitlistContainer.innerHTML = "<p>Nice! You've successfully been added to the waitlist. Hold onto your butts.</p>";
                 } else {
                     responseMessage.textContent = "There was an error. Please try again.";
                 }
