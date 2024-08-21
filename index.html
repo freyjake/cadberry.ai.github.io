@@ -16,9 +16,16 @@
             flex-direction: column;
         }
 
-        img {
-            width: 30%;
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-container img {
+            width: 25%;
             height: auto;
+            margin: 0 10px;
         }
 
         .footer {
@@ -44,7 +51,10 @@
     </style>
 </head>
 <body>
-    <img src="https://i.imgur.com/OIM2Td2.png" alt="Cadberry AI Logo">
+    <div class="logo-container">
+        <img src="https://i.imgur.com/OIM2Td2.png" alt="Cadberry AI Logo">
+        <img src="https://i.imgur.com/8197GUe.png" alt="New Image">
+    </div>
 
     <div class="footer">
         <a href="terms.html">Terms</a>
