@@ -30,7 +30,6 @@
             transition: transform 1s ease;
         }
 
-        /* Specific styling for the Hmmm image */
         #hmmm-image {
             width: 12.5%; /* 50% smaller than the original 25% */
         }
@@ -84,6 +83,35 @@
             z-index: 10000;
             transform: translate(-50%, -50%);
         }
+
+        /* Waitlist form styles */
+        .waitlist {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .waitlist input[type="email"] {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            margin-right: 10px;
+        }
+
+        .waitlist input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 2px solid yellow;
+            background-color: #333;
+            color: yellow;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .waitlist input[type="submit"]:hover {
+            background-color: #555;
+        }
     </style>
 </head>
 <body>
@@ -93,9 +121,19 @@
         <img id="hmmm-image" src="https://i.imgur.com/GOUzgHq.png" alt="Hmmmm">
     </div>
 
+    <!-- Waitlist form -->
+    <div class="waitlist">
+        <h2>Join the Waitlist</h2>
+        <form id="waitlist-form">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <input type="submit" value="Notify Me">
+        </form>
+        <p id="response-message"></p>
+    </div>
+
     <div class="footer">
         <a href="terms.html">Terms</a>
-        <a href="mailto:jake@cadberry.ai">Contact</a>
+        <a href="mailto:jake@cadberry.ai">Investors</a>
     </div>
 
     <!-- Custom cursor element -->
@@ -104,6 +142,8 @@
     <script>
         const cursor = document.querySelector('.custom-cursor');
         const hmmmImage = document.getElementById('hmmm-image');
+        const form = document.getElementById('waitlist-form');
+        const responseMessage = document.getElementById('response-message');
 
         document.addEventListener('mousemove', e => {
             cursor.style.left = `${e.clientX}px`;
@@ -124,6 +164,35 @@
             setTimeout(() => {
                 hmmmImage.classList.remove('spin');
             }, 2000); // Match duration of the animation
+        });
+
+        // Handle form submission
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const email = form.email.value;
+            const url = "https://script.google.com/macros/s/AKfycbxAmNWnk4rV62DwNW_8ZpBYuka4V1JCu6zSl8_r9TYtAXdwJJkvGU3u7zdGx4yfSR6I/exec";
+
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({ "email": email }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.result === "success") {
+                    responseMessage.textContent = "Thank you for joining the waitlist!";
+                    form.reset();
+                } else {
+                    responseMessage.textContent = "There was an error. Please try again.";
+                }
+            })
+            .catch(error => {
+                responseMessage.textContent = "There was an error. Please try again.";
+                console.error('Error:', error);
+            });
         });
     </script>
 
