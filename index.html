@@ -90,15 +90,15 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            width: 40px;
-            height: 40px;
+            width: auto;
+            height: 40px; /* Maintain the original height while adjusting width proportionally */
             cursor: pointer;
             transition: transform 0.3s ease; /* Smooth grow effect */
         }
 
         .twitter-icon img {
-            width: 100%;
             height: 100%;
+            width: auto; /* Maintain aspect ratio */
         }
 
         .twitter-icon:hover {
