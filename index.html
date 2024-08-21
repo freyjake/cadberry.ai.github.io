@@ -14,6 +14,7 @@
             align-items: center;
             height: 100vh;
             flex-direction: column;
+            cursor: none; /* Hide the default cursor */
         }
 
         .logo-container {
@@ -48,17 +49,52 @@
         .footer a:hover {
             text-decoration: underline;
         }
+
+        /* Custom circular cursor */
+        .custom-cursor {
+            position: fixed;
+            width: 20px; /* Adjust size */
+            height: 20px; /* Adjust size */
+            background-color: transparent;
+            border: 2px solid yellow; /* Circle border color */
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+        }
     </style>
 </head>
 <body>
+
     <div class="logo-container">
         <img src="https://i.imgur.com/OIM2Td2.png" alt="Cadberry AI Logo">
-        <img src="https://i.imgur.com/O1BM8VC.png" alt="New Image">
+        <img src="https://i.imgur.com/O1BM8VC.png" alt="Hmmmm">
     </div>
 
     <div class="footer">
         <a href="terms.html">Terms</a>
         <a href="mailto:jake@cadberry.ai">Investors</a>
     </div>
+
+    <!-- Custom cursor element -->
+    <div class="custom-cursor"></div>
+
+    <script>
+        const cursor = document.querySelector('.custom-cursor');
+
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        });
+
+        document.addEventListener('mouseenter', () => {
+            cursor.style.display = 'block';
+        });
+
+        document.addEventListener('mouseleave', () => {
+            cursor.style.display = 'none';
+        });
+    </script>
+
 </body>
 </html>
