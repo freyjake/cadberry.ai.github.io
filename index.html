@@ -13,14 +13,42 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            flex-direction: column;
         }
+
         img {
             width: 50%;
             height: auto;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <img src="https://i.imgur.com/OIM2Td2.png" alt="Cadberry AI Logo">
+
+    <div class="footer">
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="mailto:jake@cadberry.ai">Investors</a>
+    </div>
 </body>
 </html>
