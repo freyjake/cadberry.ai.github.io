@@ -9,6 +9,9 @@
         body {
             background-color: black;
             margin: 0;
+            padding: 10px; /* Add padding for the yellow border */
+            border: 10px solid yellow; /* Solid yellow border */
+            box-sizing: border-box;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -114,9 +117,13 @@
 
         /* Mobile-friendly styling */
         @media (max-width: 768px) {
+            body {
+                cursor: default; /* Show default cursor for mobile (disable custom cursor) */
+            }
+
             .logo-container {
                 flex-direction: column;
-                margin-bottom: 40px;
+                margin-bottom: 10px; /* Reduced margin for mobile */
             }
 
             .logo-container img {
@@ -135,6 +142,14 @@
 
             .twitter-icon {
                 height: 60px; /* Slightly smaller for mobile */
+            }
+
+            #waitforit-embed {
+                margin-top: 10px; /* Reduced margin above the waitlist widget */
+            }
+
+            .custom-cursor {
+                display: none; /* Hide the custom cursor on mobile */
             }
         }
     </style>
