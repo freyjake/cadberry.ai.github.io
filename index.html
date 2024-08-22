@@ -58,11 +58,12 @@
 
         .footer {
             position: fixed;
-            bottom: 0;
-            width: 100%;
+            bottom: 10px; /* Adjusted for border visibility */
+            width: calc(100% - 20px); /* Account for border */
             background-color: #141414;
             text-align: center;
             padding: 10px 0;
+            box-sizing: border-box;
         }
 
         .footer a {
@@ -123,7 +124,7 @@
 
             .logo-container {
                 flex-direction: column;
-                margin-bottom: 10px; /* Reduced margin for mobile */
+                margin-bottom: 5px; /* Further reduced margin for mobile */
             }
 
             .logo-container img {
@@ -145,7 +146,7 @@
             }
 
             #waitforit-embed {
-                margin-top: 10px; /* Reduced margin above the waitlist widget */
+                margin-top: 5px; /* Further reduced margin above the waitlist widget */
             }
 
             .custom-cursor {
