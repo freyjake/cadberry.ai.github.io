@@ -22,6 +22,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
         }
 
         .logo-container img {
@@ -108,6 +110,32 @@
         /* Padding for waitlist form */
         #waitforit-embed {
             padding: 20px; /* Add padding around the form */
+        }
+
+        /* Mobile-friendly styling */
+        @media (max-width: 768px) {
+            .logo-container {
+                flex-direction: column;
+                margin-bottom: 40px;
+            }
+
+            .logo-container img {
+                width: 50%;
+                margin: 10px 0;
+            }
+
+            #hmmm-image {
+                width: 25%; /* Adjust size for mobile */
+            }
+
+            .footer {
+                padding: 15px 0;
+                font-size: 14px;
+            }
+
+            .twitter-icon {
+                height: 60px; /* Slightly smaller for mobile */
+            }
         }
     </style>
 </head>
