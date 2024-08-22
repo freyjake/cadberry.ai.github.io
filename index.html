@@ -104,6 +104,11 @@
         .twitter-icon:hover {
             transform: scale(1.1); /* Grow by 10% on hover */
         }
+
+        /* Padding for waitlist form */
+        #waitforit-embed {
+            padding: 20px; /* Add padding around the form */
+        }
     </style>
 </head>
 <body>
@@ -125,13 +130,10 @@
         </a>
     </div>
 
-  <script src="https://www.waitforit.me/waitlistV3.bundle.js" async></script>
-
-  <div id="waitforit-embed" data-project-id="457d33af-d74c-407f-9f04-191f0adc4266">
-
-  </div>
-  
-  <link rel="stylesheet" type="text/css" href="https://www.waitforit.me/wfiEmbedStyles.css"></link>
+    <!-- Waitlist Form -->
+    <div id="waitforit-embed" data-project-id="457d33af-d74c-407f-9f04-191f0adc4266"></div>
+    <link rel="stylesheet" type="text/css" href="https://www.waitforit.me/wfiEmbedStyles.css"></link>
+    <script src="https://www.waitforit.me/waitlistV3.bundle.js" async></script>
   
     <!-- Custom cursor element -->
     <div class="custom-cursor"></div>
